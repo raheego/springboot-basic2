@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.spring.myapp.model.mapper.TestTableMapper">
+
+    <!-- C -->
+    <insert id="insert" parameterType="com.example.sping.domain.TableVO"> <!-- 이거 경로 적을 때 직접  -->
+        INSERT INTO testTable VALUES (#{userCode}, #{userName})
+    </insert>
+
+    <!-- R -->
+    <select id="selectAllList" resultType="hashmap">
+        SELECT * FROM testTable
+    </select>
+
+    <!-- 	<select id="SelectAllList" resultType="TableVO">
+            select *
+            from testTable
+        </select>  -->
+
+    <select id="selectByUsercode" resultType="hashmap">
+        SELECT * FROM testTable WHERE userCode = #{userCode}
+    </select>
+    <!--
+          <select id="selectByUsercode" resultType="TableVO">
+            select *
+            from testTable
+            WHERE USERCODE = #{userCode}
+        </select>
+     -->
+    <!-- U -->
+    <update id="update" parameterType="com.example.sping.domain.TableVO">
+        UPDATE testTable SET userName=#{userName} WHERE userCode=#{userCode}
+    </update>
+
+    <!-- D -->
+    <delete id="deleteByUserCode">
+        DELETE FROM testTable WHERE userCode = #{userCode}
+    </delete>
+
+
+
+</mapper>

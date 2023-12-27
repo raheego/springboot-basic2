@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<div>
+    <h1>DB 연동 확인</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>userCode</th>
+                <th>username</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="row : ${Alllist}">
+                <td th:text="${row.userCode}"></td>
+                <td th:text="${row.userName}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
