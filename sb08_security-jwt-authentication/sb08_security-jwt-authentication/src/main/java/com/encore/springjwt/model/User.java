@@ -48,9 +48,9 @@ public class User {
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY) //fetch 인출하는 과정을 lazy 지연시켜라
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "role",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "id"))
     private Set<Role> roles = new HashSet<>();
 
 }
