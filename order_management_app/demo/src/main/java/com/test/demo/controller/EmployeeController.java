@@ -38,8 +38,20 @@ public class EmployeeController {
         return employeeService.updateEmployee(employeeId, employee);
     }
 
-    @PostMapping("/delete")
-    public void deleteEmployee(@RequestBody String employeeId){
-        employeeService.deleteEmployee(employeeId);
-    }
+
+
+
+    /*
+    @DeleteMapping("{id}")
+public ResponseEntity deleteById(@PathVariable String id) {
+    employeeService.deleteEmployee(id);
+    return new ResponseEntity(HttpStatus.OK);
 }
+    */
+@PutMapping("{id}")
+public ResponseEntity update(@PathVariable String id, @RequestBody EmployeeUpdateDTO employeeUpdateDTO) {
+    Employee result = employeeService.updateEmployee(id, employeeUpdateDTO);
+    return new ResponseEntity(HttpStatus.OK);
+    
+
+    
